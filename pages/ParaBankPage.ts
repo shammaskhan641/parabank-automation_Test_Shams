@@ -25,4 +25,11 @@ export class ParaBankPage {
         await this.page.getByRole('button', { name: 'Register' }).click();
 
 }
+async verifyAccountBalance() {
+        await this.page.getByRole('link', { name: 'Accounts Overview' }).click();
+        await this.page.locator('b').filter({ hasText: '$' }).click();
+        await expect(this.page.locator('tbody')).toContainText('515.50');
+        console.log('Total Balance is displayed on the screen = ' + await this.page.locator('tbody b').nth(1).textContent());
+        
+}
 }
