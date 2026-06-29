@@ -1,11 +1,15 @@
-
-import {test, expect} from '@playwright/test';
+import { test,expect } from '@playwright/test';
+import { ParaBankPage } from '../pages/ParaBankPage';
 test('Register a new user and verify account balance', async ({ page }) => {
-    await test.step('Navigate to the site', async () => {
-        await page.goto('https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC');
-    });
+
+    const paraBank = new ParaBankPage(page);
+
     const username = `shams${Date.now()}`;
     const password = 'qwerty';
+
+    await test.step('Navigate to the site', async () => {
+        await paraBank.navigate();
+    });
     await test.step('Starting Registration ', async () => {
         const username = `shams${Date.now()}`;
         const password = 'qwerty';
