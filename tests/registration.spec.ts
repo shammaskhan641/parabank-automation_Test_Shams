@@ -1,4 +1,4 @@
-import { test,expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { ParaBankPage } from '../pages/ParaBankPage';
 test('Register a new user and verify account balance', async ({ page }) => {
 
